@@ -21,6 +21,7 @@ namespace SWPDM_Update_Card_Data
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            Parameters.Clear();
             switch (this.tabControl.SelectedTab.Text)
             {
                 case "Way 1":
@@ -47,7 +48,7 @@ namespace SWPDM_Update_Card_Data
                         // Get Center-Bottom MGP
                         Parameters.Add(Field[9], CenterBottom_textBox.Text);
 
-                        swPDMAddin.WriteCardData(Parameters);
+                        WriteCardData(Parameters);
                     }
                     else
                     {
@@ -65,6 +66,35 @@ namespace SWPDM_Update_Card_Data
             swPDMAddin = null;
             Parameters = null;
             Close();
+        }
+        public void WriteCardData(Dictionary<string, string> Parameters)
+        {
+            try
+            {
+                IEdmVault5 myVault;
+
+                myVault = swPDMAddin.GetVault5;
+                
+                //IEdmFolder5 Folder = default(IEdmFolder5);
+
+                //Folder = myVault.RootFolder;
+
+                //MessageBox.Show(Folder.ParentFolder.ToString());
+
+                // Check out file
+
+                // Set Card Data
+
+                // Check in file
+            }
+            catch (System.Runtime.InteropServices.COMException ex)
+            {
+                MessageBox.Show("HRESULT = 0x" + ex.ErrorCode.ToString("X") + " " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

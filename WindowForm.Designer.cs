@@ -404,6 +404,8 @@
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.tabControl);
             this.Name = "WindowForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Card Data";
             this.tabControl.ResumeLayout(false);
             this.Way1_tab.ResumeLayout(false);

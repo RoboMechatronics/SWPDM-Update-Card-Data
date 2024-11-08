@@ -11,7 +11,7 @@ namespace SWPDM_Update_Card_Data
         private const int AddInversion = 1;
         private EdmCmd mPoCmd;
         private EdmCmdData[] mPpoData;
-        private IEdmVault5 mVault;
+        private IEdmVault5 mVault5;
 
         public void GetAddInInfo(ref EdmAddInInfo poInfo, IEdmVault5 poVault, IEdmCmdMgr5 poCmdMgr)
         {
@@ -26,7 +26,7 @@ namespace SWPDM_Update_Card_Data
             // Register a menu command
             poCmdMgr.AddCmd(CmdID, AddInName, (int)EdmMenuFlags.EdmMenu_Nothing);
 
-            mVault = poVault;
+            mVault5 = poVault;
         }
 
         public void OnCmd(ref EdmCmd poCmd, ref EdmCmdData[] ppoData)
@@ -51,15 +51,7 @@ namespace SWPDM_Update_Card_Data
         { get { return mPpoData; } }
 
         public IEdmVault5 GetVault5
-        { get { return mVault; } }
+        { get { return mVault5; } }
 
-        public void WriteCardData(string FilePath, Dictionary<string, string> Parameters)
-        {
-            // Check out file
-
-            // Set Card Data
-
-            // Check in file
-        }
     }
 }
