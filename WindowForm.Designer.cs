@@ -56,9 +56,9 @@
             this.CenterOfWeb_textBox = new System.Windows.Forms.TextBox();
             this.Description_textBox = new System.Windows.Forms.TextBox();
             this.Way2_tab = new System.Windows.Forms.TabPage();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControl.SuspendLayout();
@@ -71,16 +71,18 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(276, 6);
+            this.label11.Location = new System.Drawing.Point(18, 12);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(153, 20);
             this.label11.TabIndex = 3;
             this.label11.Text = "Probe Parameters";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Cancel_button
             // 
-            this.Cancel_button.Location = new System.Drawing.Point(242, 355);
+            this.Cancel_button.Location = new System.Drawing.Point(243, 405);
             this.Cancel_button.Name = "Cancel_button";
             this.Cancel_button.Size = new System.Drawing.Size(75, 23);
             this.Cancel_button.TabIndex = 4;
@@ -90,36 +92,35 @@
             // 
             // UpdateCardData_button
             // 
-            this.UpdateCardData_button.Location = new System.Drawing.Point(323, 355);
+            this.UpdateCardData_button.Location = new System.Drawing.Point(324, 405);
             this.UpdateCardData_button.Name = "UpdateCardData_button";
             this.UpdateCardData_button.Size = new System.Drawing.Size(110, 23);
             this.UpdateCardData_button.TabIndex = 4;
             this.UpdateCardData_button.Text = "Update Card Data";
             this.UpdateCardData_button.UseVisualStyleBackColor = true;
-            this.UpdateCardData_button.Click += new System.EventHandler(this.Add_button_Click);
+            this.UpdateCardData_button.Click += new System.EventHandler(this.UpdateCardData_button_Click);
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.Way1_tab);
             this.tabControl.Controls.Add(this.Way2_tab);
-            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Location = new System.Drawing.Point(12, 43);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(425, 337);
+            this.tabControl.Size = new System.Drawing.Size(425, 356);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl.TabIndex = 6;
             // 
             // Way1_tab
             // 
-            this.Way1_tab.BackColor = System.Drawing.SystemColors.Window;
-            this.Way1_tab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Way1_tab.BackColor = System.Drawing.SystemColors.Control;
             this.Way1_tab.Controls.Add(this.pictureBox1);
             this.Way1_tab.Controls.Add(this.groupBox1);
-            this.Way1_tab.ForeColor = System.Drawing.SystemColors.Window;
+            this.Way1_tab.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Way1_tab.Location = new System.Drawing.Point(4, 22);
             this.Way1_tab.Name = "Way1_tab";
             this.Way1_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.Way1_tab.Size = new System.Drawing.Size(417, 311);
+            this.Way1_tab.Size = new System.Drawing.Size(417, 330);
             this.Way1_tab.TabIndex = 0;
             this.Way1_tab.Text = "Way 1";
             // 
@@ -134,6 +135,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -326,39 +328,19 @@
             // 
             // Way2_tab
             // 
+            this.Way2_tab.BackColor = System.Drawing.SystemColors.Control;
             this.Way2_tab.Controls.Add(this.radioButton1);
             this.Way2_tab.Controls.Add(this.label12);
             this.Way2_tab.Controls.Add(this.radioButton2);
             this.Way2_tab.Controls.Add(this.richTextBox2);
             this.Way2_tab.Controls.Add(this.richTextBox1);
-            this.Way2_tab.ForeColor = System.Drawing.SystemColors.Window;
+            this.Way2_tab.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Way2_tab.Location = new System.Drawing.Point(4, 22);
             this.Way2_tab.Name = "Way2_tab";
             this.Way2_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.Way2_tab.Size = new System.Drawing.Size(417, 311);
+            this.Way2_tab.Size = new System.Drawing.Size(417, 330);
             this.Way2_tab.TabIndex = 1;
             this.Way2_tab.Text = "Way 2";
-            this.Way2_tab.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(139, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Paste properties value here:";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.radioButton2.Location = new System.Drawing.Point(173, 15);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(141, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "All probes in this location";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -373,8 +355,30 @@
             this.radioButton1.Text = "The selected probe";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label12.Location = new System.Drawing.Point(7, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(139, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Paste properties value here:";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.radioButton2.Location = new System.Drawing.Point(173, 15);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(128, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Text = "All probes in list below";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // richTextBox2
             // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.Control;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox2.Location = new System.Drawing.Point(6, 229);
@@ -387,6 +391,7 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox1.Location = new System.Drawing.Point(6, 63);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(405, 147);
@@ -397,16 +402,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(446, 389);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.UpdateCardData_button);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(446, 438);
             this.Controls.Add(this.Cancel_button);
+            this.Controls.Add(this.UpdateCardData_button);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.tabControl);
             this.Name = "WindowForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Card Data";
+            this.TopMost = true;
             this.tabControl.ResumeLayout(false);
             this.Way1_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
