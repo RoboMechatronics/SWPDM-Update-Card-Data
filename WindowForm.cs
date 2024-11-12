@@ -55,59 +55,66 @@ namespace SWPDM_Update_Card_Data
             switch (this.tabControl.SelectedTab.Text)
             {
                 case "Way 1":
-                    if (swPDMAddin.GetPpoData.Count == 1)
+                    if (HasData(CenterOfWeb_textBox.Text)==true && 
+                        HasData(Description_textBox.Text)==true &&
+                        HasData(Probe_textBox.Text) == true &&
+                        HasData(TipType_textBox.Text) == true &&
+                        HasData(TotalLength_textBox.Text) == true &&
+                        HasData(DutPlunger_textBox.Text) == true &&
+                        HasData(Preload_textBox.Text) == true &&
+                        HasData(TipExtension_textBox.Text) == true &&
+                        HasData(CenterTopMGP_textBox.Text) == true &&
+                        HasData(CenterBottom_textBox.Text) == true)
                     {
-                        // Get Center of Web
-                        Parameters.Add(Field[0], CenterOfWeb_textBox.Text);
-                        // Get Desciption
-                        Parameters.Add(Field[1], Description_textBox.Text);
-                        // Get Probe type
-                        Parameters.Add(Field[2], Probe_textBox.Text);
-                        // Get Tip type
-                        Parameters.Add(Field[3], TipType_textBox.Text);
-                        // Get Total Length
-                        Parameters.Add(Field[4], TotalLength_textBox.Text);
-                        // Get Dut Plunger
-                        Parameters.Add(Field[5], DutPlunger_textBox.Text);
-                        // Get Preload
-                        Parameters.Add(Field[6], Preload_textBox.Text);
-                        // Get Tip Extension
-                        Parameters.Add(Field[7], TipExtension_textBox.Text);
-                        // Get Center-Top MGP
-                        Parameters.Add(Field[8], CenterTopMGP_textBox.Text);
-                        // Get Center-Bottom MGP
-                        Parameters.Add(Field[9], CenterBottom_textBox.Text);
+                        if (swPDMAddin.GetPpoData.Count == 1) // If you choose one probe.
+                        {
+                            // Get Center of Web
+                            Parameters.Add(Field[0], CenterOfWeb_textBox.Text);
+                            // Get Desciption
+                            Parameters.Add(Field[1], Description_textBox.Text);
+                            // Get Probe type
+                            Parameters.Add(Field[2], Probe_textBox.Text);
+                            // Get Tip type
+                            Parameters.Add(Field[3], TipType_textBox.Text);
+                            // Get Total Length
+                            Parameters.Add(Field[4], TotalLength_textBox.Text);
+                            // Get Dut Plunger
+                            Parameters.Add(Field[5], DutPlunger_textBox.Text);
+                            // Get Preload
+                            Parameters.Add(Field[6], Preload_textBox.Text);
+                            // Get Tip Extension
+                            Parameters.Add(Field[7], TipExtension_textBox.Text);
+                            // Get Center-Top MGP
+                            Parameters.Add(Field[8], CenterTopMGP_textBox.Text);
+                            // Get Center-Bottom MGP
+                            Parameters.Add(Field[9], CenterBottom_textBox.Text);
 
-                        UpdateCardData(ref Parameters);
+                            // Get Card Data
+                            UpdateCardData(ref Parameters);
+                        }
+                        else // If you choose two or more probes.
+                        {
+                            tabControl.SelectedTab = Way2_tab;
+                        }
                     }
                     else
                     {
-                        tabControl.SelectedTab = Way2_tab;
+                        MessageBox.Show("Please fill data into the textboxes below");
                     }
+
                     break;
 
                 case "Way 2":
-                    if (swPDMAddin.GetPpoData.Count == 1)
+
+                    string content = PasteFromClipboard_richTextBox.Text;
+
+                    if (!String.IsNullOrEmpty(content) && content != "")
                     {
-                        if (!String.IsNullOrEmpty(richTextBox1.Text))
-                        {
-                            if (richTextBox1.Visible == true && richTextBox2.Visible == false)
-                            {
-                                MessageBox.Show("Available Data. " + "Single probe");
-                            }
-                            if (richTextBox1.Visible == false && richTextBox2.Visible == true)
-                            {
-                                MessageBox.Show("Available Data. " + "Multi probes");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please paste data into textbox or choose tab 'Way 1'");
-                        }
+                        UpdateCardData(ref ParametersArray); // for single and multi probes.
                     }
                     else
                     {
-                        UpdateCardData(ref ParametersArray);
+                        MessageBox.Show("Please paste data into textbox below or move to | Way 1 | tab.");
                     }
                     break;
             }
@@ -141,7 +148,7 @@ namespace SWPDM_Update_Card_Data
                 int lParentWnd = swPDMAddin.GetParentWnd;
                 #endregion
 
-                richTextBox1.Text = "";
+                PasteFromClipboard_richTextBox.Text = "";
                 ppoData = swPDMAddin.GetPpoData;
                 foreach (KeyValuePair<int, string> p in ppoData){
                     // Get file
@@ -150,13 +157,14 @@ namespace SWPDM_Update_Card_Data
                     // Check out this file
                     file.LockFile(lParentFolderID, this.Handle.ToInt32());
 
-                    // 
+                    // Prepair if error happends
                     UndoCheckOut = new UndoCheckoutFiles(MyVault, p.Key, swPDMAddin.GetParentFolderID, this.Handle.ToInt32());
 
                     // Update variables
                     IEdmEnumeratorVariable5 vars = (IEdmEnumeratorVariable5)file.GetEnumeratorVariable(file.GetLocalPath(swPDMAddin.GetParentFolderID));
                     IEdmStrLst5 ConfigNames = (IEdmStrLst5)file.GetConfigurations();
 
+                    // Get Po
                     IEdmPos5 pos = ConfigNames.GetHeadPosition();
                     string CurConfig = "";
                     while (!pos.IsNull){
@@ -200,6 +208,19 @@ namespace SWPDM_Update_Card_Data
         /// <param name="ParametersArray"></param>
         public void UpdateCardData(ref Dictionary<string, string>[] ParametersArray) 
         { 
+            MessageBox.Show("Debug only, " + ParametersArray.ToString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public bool HasData(string s)
+        {
+            if (!string.IsNullOrEmpty(s) && s != "") return true;
+            
+            return false;
         }
         #endregion
     }

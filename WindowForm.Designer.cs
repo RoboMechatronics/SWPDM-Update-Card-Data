@@ -56,11 +56,9 @@
             this.CenterOfWeb_textBox = new System.Windows.Forms.TextBox();
             this.Description_textBox = new System.Windows.Forms.TextBox();
             this.Way2_tab = new System.Windows.Forms.TabPage();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.GuideLine_richTextBox = new System.Windows.Forms.RichTextBox();
+            this.PasteFromClipboard_richTextBox = new System.Windows.Forms.RichTextBox();
             this.tabControl.SuspendLayout();
             this.Way1_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -329,11 +327,9 @@
             // Way2_tab
             // 
             this.Way2_tab.BackColor = System.Drawing.SystemColors.Control;
-            this.Way2_tab.Controls.Add(this.radioButton1);
             this.Way2_tab.Controls.Add(this.label12);
-            this.Way2_tab.Controls.Add(this.radioButton2);
-            this.Way2_tab.Controls.Add(this.richTextBox2);
-            this.Way2_tab.Controls.Add(this.richTextBox1);
+            this.Way2_tab.Controls.Add(this.GuideLine_richTextBox);
+            this.Way2_tab.Controls.Add(this.PasteFromClipboard_richTextBox);
             this.Way2_tab.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Way2_tab.Location = new System.Drawing.Point(4, 22);
             this.Way2_tab.Name = "Way2_tab";
@@ -342,61 +338,38 @@
             this.Way2_tab.TabIndex = 1;
             this.Way2_tab.Text = "Way 2";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.radioButton1.Location = new System.Drawing.Point(28, 15);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(117, 17);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "The selected probe";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label12.Location = new System.Drawing.Point(7, 44);
+            this.label12.Location = new System.Drawing.Point(6, 13);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(139, 13);
             this.label12.TabIndex = 2;
             this.label12.Text = "Paste properties value here:";
             // 
-            // radioButton2
+            // GuideLine_richTextBox
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.radioButton2.Location = new System.Drawing.Point(173, 15);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(128, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "All probes in list below";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(6, 229);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(325, 76);
-            this.richTextBox2.TabIndex = 0;
-            this.richTextBox2.Text = "Syntax: \n     Field_A  Field_B  Field_C  ...\n     MEM-xxxx00-01  <value> <value> " +
+            this.GuideLine_richTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.GuideLine_richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GuideLine_richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuideLine_richTextBox.Location = new System.Drawing.Point(6, 229);
+            this.GuideLine_richTextBox.Name = "GuideLine_richTextBox";
+            this.GuideLine_richTextBox.Size = new System.Drawing.Size(325, 76);
+            this.GuideLine_richTextBox.TabIndex = 0;
+            this.GuideLine_richTextBox.Text = "Syntax: \n     Field_A  Field_B  Field_C  ...\n     MEM-xxxx00-01  <value> <value> " +
     "...\n     MEM-xxxx01-01  <value> <value> ...\n     MEM-xxxx02-01  <value> <value> " +
     "...";
             // 
-            // richTextBox1
+            // PasteFromClipboard_richTextBox
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.richTextBox1.Location = new System.Drawing.Point(6, 63);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(405, 147);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.PasteFromClipboard_richTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.PasteFromClipboard_richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PasteFromClipboard_richTextBox.Location = new System.Drawing.Point(6, 29);
+            this.PasteFromClipboard_richTextBox.Name = "PasteFromClipboard_richTextBox";
+            this.PasteFromClipboard_richTextBox.Size = new System.Drawing.Size(405, 168);
+            this.PasteFromClipboard_richTextBox.TabIndex = 0;
+            this.PasteFromClipboard_richTextBox.Text = "";
             // 
             // WindowForm
             // 
@@ -454,10 +427,8 @@
         private System.Windows.Forms.TextBox CenterOfWeb_textBox;
         private System.Windows.Forms.TextBox Description_textBox;
         private System.Windows.Forms.TabPage Way2_tab;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RichTextBox PasteFromClipboard_richTextBox;
+        private System.Windows.Forms.RichTextBox GuideLine_richTextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
